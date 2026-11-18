@@ -1,0 +1,1050 @@
+:root {
+  --ink: #12303a;
+  --sky: #eef3f2;
+  --saffron: #e09f3e;
+  --saffron-kursor: #1f218c;
+  --saffron-dark: #c98a2c;
+  --lake: #1f7a8c;
+  --white: #ffffff;
+  --nav-text: #dbe8e6;
+  --page-bg: #eef3f2;
+  --page-text: #12303a;
+  --card-bg: #ffffff;
+}
+
+/* Dark theme (switched by the button in the navbar, see js/main.js) */
+[data-bs-theme="dark"] {
+  --page-bg: #0e1d23;
+  --page-text: #e3eeec;
+  --card-bg: #17323c;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--page-text);
+  background: var(--page-bg);
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand,
+.btn {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+/*Navigation (position: sticky)*/
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+}
+
+.site-nav .nav-link {
+  color: var(--nav-text);
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link.active {
+  color: var(--saffron);
+}
+
+/*Hero (position: relative + absolute badge)*/
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  color: var(--white);
+  background: linear-gradient(135deg, #12303a 0%, #1f7a8c 60%, #e09f3e 130%);
+}
+
+.hero .badge-alt {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 2rem;
+  color: var(--ink);
+  background: var(--saffron);
+}
+
+#intro {
+  max-width: 60ch;
+}
+
+/*Buttons*/
+.btn-saffron {
+  border: 0;
+  color: var(--ink);
+  font-weight: bold;
+  background: var(--saffron);
+}
+
+.btn-saffron:hover {
+  background: var(--saffron-dark);
+}
+
+/*Flexbox: feature cards*/
+.feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.feature-row .feature {
+  flex: 1 1 220px;
+  padding: 1.2rem;
+  border-left: 5px solid var(--saffron);
+  background: var(--card-bg);
+}
+
+/*Colour tiles (placeholders)*/
+.tile {
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 4 / 3;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  color: var(--white);
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.t1 { background: linear-gradient(160deg, #1f7a8c, #12303a); }
+.t2 { background: linear-gradient(160deg, #e09f3e, #8a5a14); }
+.t3 { background: linear-gradient(160deg, #5b8c5a, #1d3d2b); }
+.t4 { background: linear-gradient(160deg, #9db4c0, #3d5a6c); }
+.t5 { background: linear-gradient(160deg, #c8553d, #5c1f14); }
+.t6 { background: linear-gradient(160deg, #2b4c7e, #0b1b33); }
+
+/*Grid: gallery*/
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 1rem;
+}
+
+.gallery-grid .wide {
+  grid-column: span 2;
+}
+
+.gallery-grid figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.4rem;
+}
+
+.gallery-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 0.8rem;
+  color: var(--white);
+  font-family: "Trebuchet MS", sans-serif;
+  background: rgba(18, 48, 58, 0.65);
+}
+
+.gallery-grid .tile {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+/*Table and form*/
+table caption {
+  caption-side: top;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+
+#contact-form label {
+  font-weight: bold;
+}
+
+footer {
+  color: var(--nav-text);
+  background: var(--ink);
+}
+
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 50vh;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero .badge-alt {
+    position: static;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid .wide {
+    grid-column: span 1;
+  }
+}
+
+
+/* ===================== Endterm additions ===================== */
+
+/* Navbar: favorites badge */
+.fav-badge {
+  color: var(--ink);
+  background: var(--saffron);
+}
+
+/* Tour cards */
+.destination-card {
+  color: var(--page-text);
+  background: var(--card-bg);
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(18, 48, 58, 0.2);
+}
+
+.destination-card .card-img-top {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.tour-meta {
+  opacity: 0.75;
+}
+
+.tour-price {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Hidden until the jQuery "Details" button opens it */
+.card-details {
+  display: none;
+  margin-bottom: 0.5rem;
+}
+
+/* Favorite (heart) button */
+.btn-fav {
+  padding: 0 0.25rem;
+  border: 0;
+  color: #8a9a9e;
+  font-size: 1.6rem;
+  line-height: 1;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.btn-fav:hover {
+  transform: scale(1.2);
+}
+
+.btn-fav.is-favorite {
+  color: #c8553d;
+}
+
+/* Gallery */
+.gallery-grid {
+  grid-auto-flow: dense;
+}
+
+.gallery-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.gallery-btn:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: -3px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.lightbox-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.lightbox-figure img {
+  max-width: min(86vw, 1100px);
+  max-height: 78vh;
+  border-radius: 0.4rem;
+}
+
+.lightbox-caption {
+  margin-top: 0.6rem;
+  color: #fff;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* FAQ accordion (About page) */
+.faq-item {
+  border-bottom: 1px solid rgba(127, 127, 127, 0.35);
+}
+
+.faq-question {
+  position: relative;
+  width: 100%;
+  padding: 0.9rem 2rem 0.9rem 0;
+  border: 0;
+  color: inherit;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-weight: bold;
+  text-align: left;
+  background: none;
+}
+
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0.5rem;
+  color: var(--saffron-dark);
+  font-size: 1.4rem;
+}
+
+.faq-question[aria-expanded="true"]::after {
+  content: "\2212";
+}
+
+.faq-question:focus-visible {
+  outline: 3px solid var(--saffron);
+}
+
+.faq-answer {
+  display: none;
+}
+
+.faq-open .faq-question {
+  color: var(--lake);
+}
+
+/* Booking form */
+.price-estimate {
+  padding: 0.75rem 1rem;
+  border-left: 5px solid var(--saffron);
+  background: var(--card-bg);
+}
+
+/* Toast message and back-to-top button (jQuery, js/effects.js) */
+.app-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 3000;
+  max-width: 90vw;
+  padding: 0.7rem 1.2rem;
+  border-left: 5px solid var(--saffron);
+  border-radius: 0.3rem;
+  color: #fff;
+  background: var(--ink);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transform: translateX(-50%);
+}
+
+#back-to-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 1500;
+  width: 2.8rem;
+  height: 2.8rem;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+@media (max-width: 576px) {
+  .lightbox-nav {
+    top: auto;
+    bottom: 1rem;
+    transform: none;
+  }
+}
+
+/* Price slider in the site colours */
+.form-range::-webkit-slider-thumb { background: var(--saffron); }
+.form-range::-moz-range-thumb { background: var(--saffron); }
+.form-range:focus::-webkit-slider-thumb { box-shadow: 0 0 0 0.25rem rgba(224, 159, 62, 0.35); }
+
+/* ===================== Final project additions ===================== */
+
+:root {
+  --link: #1f7a8c;
+  --link-hover: #12303a;
+  --line: rgba(127, 127, 127, 0.28);
+  --radius: 0.75rem;
+}
+
+[data-bs-theme="dark"] {
+  --link: #6fc4d4;
+  --link-hover: #ffffff;
+}
+
+/* Links and focus use the site colours */
+main a:not(.btn):not(.weather-link) {
+  color: var(--link);
+}
+
+main a:not(.btn):not(.weather-link):hover {
+  color: var(--link-hover);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 0.25rem rgba(224, 159, 62, 0.3);
+}
+
+.form-check-input:checked {
+  border-color: var(--lake);
+  background-color: var(--lake);
+}
+
+.form-check-input:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 0.25rem rgba(224, 159, 62, 0.3);
+}
+
+:focus-visible {
+  outline-color: var(--saffron);
+}
+
+/* Skip link (keyboard / screen-reader users) */
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 4000;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 0.4rem 0.4rem;
+  color: var(--ink);
+  font-weight: bold;
+  background: var(--saffron);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Headings and intro text */
+.section-title {
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--saffron);
+}
+
+.text-center.section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page-intro {
+  max-width: 55ch;
+  opacity: 0.85;
+}
+
+.text-center.page-intro {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Hero with a photo under the colour gradient */
+.hero {
+  min-height: 68vh;
+  background:
+    linear-gradient(135deg, rgba(18, 48, 58, 0.9) 0%, rgba(31, 122, 140, 0.62) 62%, rgba(224, 159, 62, 0.5) 130%),
+    url("../images/kaindy.webp") center / cover no-repeat,
+    #12303a;
+}
+
+.hero h1 {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Navbar */
+.site-nav .dropdown-menu {
+  min-width: 12rem;
+}
+
+/* Home: "welcome back" banner */
+.trip-reminder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 5px solid var(--saffron);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.1);
+}
+
+.trip-reminder.d-none {
+  display: none;
+}
+
+/* Tour cards: image wrapper, zoom, difficulty pill */
+.destination-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-media img {
+  transition: transform 0.4s ease;
+}
+
+.destination-card:hover .card-media img {
+  transform: scale(1.05);
+}
+
+.difficulty-pill {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 2rem;
+  color: #fff;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.diff-easy { background: #2f7d4f; }
+.diff-moderate { background: #a8650f; }
+.diff-hard { background: #b0402f; }
+
+/* Filter bars share one look */
+.filter-bar {
+  padding: 1rem 1rem 1.2rem;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.08);
+}
+
+.filter-bar .form-label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* ---------- Booking wizard ---------- */
+.booking-card {
+  padding: 1.6rem;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 4px 16px rgba(18, 48, 58, 0.12);
+}
+
+.stepper {
+  display: flex;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.stepper li {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.6;
+}
+
+.stepper li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1.1rem;
+  left: calc(50% + 1.4rem);
+  width: calc(100% - 2.8rem);
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.stepper li.is-done:not(:last-child)::after {
+  background: var(--lake);
+}
+
+.step-dot {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-weight: bold;
+  background: var(--card-bg);
+}
+
+.step-label {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.85rem;
+}
+
+.stepper li.is-active,
+.stepper li.is-done {
+  opacity: 1;
+}
+
+.stepper li.is-active .step-dot {
+  border-color: var(--saffron);
+  color: var(--ink);
+  background: var(--saffron);
+}
+
+.stepper li.is-done .step-dot {
+  border-color: var(--lake);
+  color: #fff;
+  background: var(--lake);
+}
+
+.extra-price {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.booking-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.2rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.5rem;
+  background: rgba(127, 127, 127, 0.1);
+}
+
+.booking-summary dt {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+.booking-summary dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.price-estimate {
+  border-radius: 0.4rem;
+  background: rgba(224, 159, 62, 0.14);
+}
+
+/* ---------- Weather (API) ---------- */
+.weather-card {
+  position: relative;
+  height: 100%;
+  padding: 1.1rem 1.2rem;
+  border-top: 5px solid var(--lake);
+  border-radius: var(--radius);
+  color: var(--page-text);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.12);
+}
+
+.wx-clear { border-top-color: #e09f3e; background: linear-gradient(180deg, rgba(224, 159, 62, 0.16), var(--card-bg) 55%); }
+.wx-cloud { border-top-color: #7f9ba6; background: linear-gradient(180deg, rgba(127, 155, 166, 0.18), var(--card-bg) 55%); }
+.wx-fog { border-top-color: #9db4c0; background: linear-gradient(180deg, rgba(157, 180, 192, 0.2), var(--card-bg) 55%); }
+.wx-rain { border-top-color: #2b6fa8; background: linear-gradient(180deg, rgba(43, 111, 168, 0.16), var(--card-bg) 55%); }
+.wx-snow { border-top-color: #6bbfd8; background: linear-gradient(180deg, rgba(107, 191, 216, 0.2), var(--card-bg) 55%); }
+.wx-storm { border-top-color: #6a4c93; background: linear-gradient(180deg, rgba(106, 76, 147, 0.18), var(--card-bg) 55%); }
+
+.weather-region {
+  opacity: 0.7;
+}
+
+.weather-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.weather-temp {
+  margin: 0.4rem 0 0;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.weather-temp span {
+  margin-left: 0.15rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+.weather-desc {
+  margin: 0.3rem 0 0.9rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.forecast-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.25rem;
+  margin: 0 0 0.8rem;
+  padding: 0.6rem 0.2rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+  text-align: center;
+}
+
+.forecast-strip li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.fc-day {
+  font-size: 0.75rem;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.fc-icon {
+  font-size: 1.2rem;
+}
+
+.fc-range {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.fc-range small {
+  font-weight: normal;
+  opacity: 0.65;
+}
+
+.weather-link {
+  color: var(--link);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.weather-link:hover {
+  text-decoration: underline;
+}
+
+.weather-skeleton {
+  min-height: 15rem;
+  border-top-color: var(--line);
+  background: linear-gradient(100deg, rgba(127, 127, 127, 0.1) 30%, rgba(127, 127, 127, 0.24) 50%, rgba(127, 127, 127, 0.1) 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s linear infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* ---------- My Trips ---------- */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 1.2rem;
+  border-left: 5px solid var(--saffron);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.1);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.stat-value {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.stat-small {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.stat-note {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.chart-card {
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.1);
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.chart-label {
+  font-size: 0.9rem;
+}
+
+.chart-track {
+  height: 1.1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: rgba(127, 127, 127, 0.18);
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, var(--lake), var(--saffron));
+  transition: width 0.7s ease;
+}
+
+.chart-value {
+  min-width: 3.5rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.chart-empty {
+  opacity: 0.7;
+}
+
+.empty-state {
+  padding: 2.5rem 1rem;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.empty-state.d-none {
+  display: none;
+}
+
+.empty-icon {
+  margin-bottom: 0.4rem;
+  font-size: 2.5rem;
+}
+
+.trips-table-wrap {
+  position: relative; /* keeps visually-hidden helper text inside the scrolling box */
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(18, 48, 58, 0.1);
+}
+
+.trips-table {
+  --bs-table-bg: transparent;
+  margin-bottom: 0;
+}
+
+.trips-table th {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.trip-ref {
+  font-family: Consolas, monospace;
+  font-size: 0.85rem;
+}
+
+.trip-tour {
+  font-weight: bold;
+}
+
+.trip-person {
+  opacity: 0.7;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  font-weight: bold;
+}
+
+.status-pending { color: #7a4a00; background: #fde7b8; }
+.status-confirmed { color: #14532d; background: #c9ecd6; }
+.status-cancelled { color: #7f1d1d; background: #f8d0d0; }
+
+.page-link {
+  color: var(--link);
+}
+
+.page-item.active .page-link {
+  border-color: var(--saffron);
+  color: var(--ink);
+  background: var(--saffron);
+}
+
+[data-bs-theme="dark"] .modal-content {
+  background: var(--card-bg);
+}
+
+/* Respect "reduce motion" system setting */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Responsive additions ---------- */
+@media (max-width: 992px) {
+  .site-nav .navbar-nav {
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .booking-card {
+    padding: 1.1rem;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+  }
+
+  .chart-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .chart-row .chart-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .booking-summary {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .booking-summary dd {
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.6rem;
+  }
+
+  .forecast-strip {
+    gap: 0;
+  }
+}
+
+/* Alignment fixes */
+.filter-bar.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media (min-width: 992px) {
+  .site-nav .navbar-nav {
+    align-items: center;
+  }
+}
