@@ -3,8 +3,8 @@
 **Topic:** travel agency website about Kazakhstan. This is the final stage of the midterm and endterm projects:
 all earlier pages and features still work, and the site is now a client-side web application.
 
-- **Live site:** 
-- **Repository:** 
+- **Live site:**https://github.com/soqyrbala/final-project 
+- **Repository:** https://soqyrbala.github.io/final-project/
 
 ## Group members
 
